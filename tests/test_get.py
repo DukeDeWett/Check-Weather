@@ -31,3 +31,4 @@ def test_wrong_2():
 def test_wrong_3():
     name = get.name(request_url_wrong_3)
     city = ""
+    assert False == city
