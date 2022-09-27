@@ -7,104 +7,132 @@ Prepared By:
 Table of Contents
  
 Introduction.
-1.          Objectives. 
-2.          Scope. 
-3.          Assumptions / Risks. 
-3.1           Assumptions. 
-3.2           Risks. 
-4.          Test Environment. 
-5.        Manual Tests.
+1.Objectives. 
+2.Scope. 
+3.Assumptions / Risks. 
+3.1.Assumptions. 
+3.2.Risks. 
+4.Test Environment. 
+5.Test cases
+
 Introduction
 The Test Plan has been created to communicate the test approach to team members. It includes the objectives, scope, schedule, risks and approach.  This document will clearly identify what the test deliverables will be and what is deemed in and out of scope.
  
-1.  Objectives
+1.Objectives
 Check Weather is an application made for checking the weather of the designated city as well as the degree of cloud cover. This tool is a new product written with Python. The whole test team is responsible for testing the product and ensuring it meets their needs.
-2. Scope
+
+2.Scope
 Phase 1 of the test project will deliver Check Weather with functionality to create test cases and perform exploratory testing. The name of cities that cannot be read via API Key (or other names that are not included there) should not return any outcome and just ask you to try again with the correct city name.
 Phase 2 will use automated tests that will check existing cities and also non-existing ones. Rules are pretty similar to manual tests, however we expect existing cities to return True while non-existing ones to return False.
 Phase 3 will use Mock Testing so we can work more with the app without exceeding the daily limit of using API-Key. This test will check if this app can work under mock conditions.
 ###For now mock tests will not be tested in case of providing wrong names of the cities, but I am going to perform them in the future.###
+
 3. Assumptions / Risks
+
 3.1. Assumptions
+
 1. Delivery of the product that it is in format that can be easily tested.
  ### for now it was tested on Windows, tests on other operating systems are planned for later.###
+ 
 2. Tests should be run via CMD.
 3.2 Risks
+
 1. Connecting too many times with API Key may result in this app stops working, because of the daily limit of using this free API Key. In order to make more tests, a mock environment is highly recommended.
+
 4.Test Environment
+
 Tests are and should be performed on Windows 10 via CMD, they require stable internet connection.
         
 
 
-5. Test Cases
+5.Test Cases
         All tests are performed on Windows 10 in PyCharm IDE via “Run” command.
         
 1. Given a city name - Sydney.
 When expecting this program to run and send me legitimate data.
 Then the program worked correctly and returned “13.16 C/ broken clouds”.
+
 2. Given a city name - Ho Chi Minh.
 When expecting this program to run and send me legitimate data.
 Then the program worked correctly and returned “32.01 C/ shattered clouds”.
+
 3. Given a city name - Antananarivo.
 When expecting this program to run and send me legitimate data.
 Then the program worked correctly and returned “23.98 C/ few clouds”.
+
 4. Given a city name - Santiago.
 When expecting this program to run and send me legitimate data.
 Then the program worked correctly and returned “9.59 C / overcast clouds”.
+
 5. Given a city name - Kyoto.
 When expecting this program to run and send me legitimate data.
 Then the program worked correctly and returned “26.67 C / broken clouds”.
+
 6. Given a city name - Lodz.
 When expecting this program to run and send me legitimate data.
 Then the program worked correctly and returned “17.64 C / clear sky”.
+
 7. Given a city name - Moskow.
 When expecting this program not to run and return an error, as the name is wrong.
 Then the program returned an error and asked for another try.
+
 8. Given a city name - 33222.
 When expecting this program not to run and return an error, as the name is wrong.
 Then the program worked normally and returned “26.09 C / clear sky”.
 Additional conclusion - I googled 33222 to see what happened and it’s postal code for Miami, Florida, so that’s probably a reason for this app to work. The outcome matches the actual weather in Miami, Florida.
+
 9. Given a city name equals 94003.
 When expecting this program not to run and return an error, as the name is wrong.
 Then the program returned an error and asked for another try.
 Additional conclusion - When the outcome is a postal score in a different country than the USA it doesn’t work like the test above.
+
 10. Given a city name - !!@@@.
 When expecting this program not to run and return an error, as the name is wrong.
 Then the program returned an error and asked for another try.
+
 11. Given a city name - 754873467834648736.
 When expecting this program not to run and return an error, as the name is wrong.
 Then the program returned an error and asked for another try.
 remove normally -> ok response
-   12. Given a city name - 0.
+
+12. Given a city name - 0.
 When expecting this program not to run and return an error, as the name is wrong.
 Then the program returned an error and asked for another try.
-   13. Given a city name - NY.
+
+13. Given a city name - NY.
 When expecting this program not to run and return an error, as the name is wrong.
 Then the program returned an error and asked for another try.
 Additional conclusion - I wanted to check if shortcuts of american cities’ names might work here.
-      14. Given a city name - ~.
+
+14. Given a city name - ~.
 When expecting this program not to run and return an error, as the name is wrong.
 Then the program returned an error and asked for another try.
-      15. Given a city name - Constantinople.
+
+15. Given a city name - Constantinople.
 When expecting this program not to run and return an error, as the name is wrong.
 Then the program returned an error and asked for another try.
 Additional conclusion - I wanted to check if the previous city name might have returned as it still existed.
-         16. Given a city name - “”(empty string).
+
+16. Given a city name - “”(empty string).
 When expecting this program not to run and return an error, as the name is wrong.
 Then the program returned an error and asked for another try.
-         17. Given a city name - .--. .-. .- --. ..- .
+
+17. Given a city name - .--. .-. .- --. ..- .
 When expecting this program not to run and return an error, as the name is wrong.
 Then the program returned an error and asked for another try.
 Additional conclusion - I checked out the name of Prague in morse code.
-            18. Given a city name - 東京.
+
+18. Given a city name - 東京.
 When expecting this program not to run and return an error, as the name is wrong.
 Then the program worked normally and returned “29.47 C / broken clouds”.
 Additional conclusion - I used Japanese signs to check weather in Tokyo and surprisingly it worked out.
-            19. Given a city name - دمشق‎.
+
+19. Given a city name - دمشق‎.
 When expecting this program not to run and return an error, as the name is wrong.
 Then the program returned an error and asked for another try.
 Additional conclusion - I used arabian signs to check weather in Damascus and unlike Japanese this one didn’t work out.
-            20. Given a city name - 1010000 1100101 1101011 1101001 1101110.
+
+20. Given a city name - 1010000 1100101 1101011 1101001 1101110.
 When expecting this program not to run and return an error, as the name is wrong.
 Then the program returned an error and asked for another try.
 Additional conclusion - I gave Pekin’s name in binary language to see if it might work.
